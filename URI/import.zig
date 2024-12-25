@@ -1,1 +1,0 @@
-comptime { @import("src/test.zig"); }
