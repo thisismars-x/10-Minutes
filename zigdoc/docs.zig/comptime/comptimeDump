@@ -1,0 +1,20 @@
+
+compile time is better than runtime
+
+langs with a super dynamic runtime pay the price of
+performance for over simplification
+.zig does not have a runtime(traditional sense)
+
+stuff known @compile time give aggressive 
+optimization opportunities to the compiler
+
+	 |--> Runtime: unpredictable	
+language |
+	 |
+	 |
+	 |--> Comptime: very predictable
+
+
+.zig, rust, all have very simple runtimes
+languages like Java, Python(specially interpreted)
+langs have a very dynamic runtime

@@ -1,0 +1,14 @@
+
+.zig has undefined behavior unlike Rust
+If the program passes compiler's checks in Rust, it is void
+of any undefined behavior
+
+	     |=> compile time - generates compile error
+             |
+             |
+undefined ----
+             |
+	     |
+             |=> runtime - is configurable
+
+.zig undefined behavior: https://ziglang.org/documentation/master/#Undefined-Behavior

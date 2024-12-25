@@ -1,0 +1,32 @@
+
+Every expression in .zig has 'result information'[type + location]
+
+const a: i32 = 64;
+.zig coerces the comptime_int into i32
+	
+const b = a; 
+.zig has result info a 'a', and can conclude b is i32
+	
+@intCast for example:
+	const c: i120 = @intCast(b);
+uses result info from c
+
+Result location
+const x = some_struct { field1 = x, field2.. }
+
+Most langs make a temp struct on the stack and then move it to x
+with a potential type coercion
+
+if expression .{ .a=b, .c=d } is given to some ptr
+.zig directly does &ptr.a = b and &ptr.c = d
+this makes assignment of temp struct on stack unnecessary
+
+This would be troubling
+------------------------>
+
+var arr: [2]u32 = .{ 1, 2 };
+arr = .{ arr[1], arr[0] };
+
+.zig would desugarize this as
+arr[0] = arr[1]
+arr[1] = arr[0]
